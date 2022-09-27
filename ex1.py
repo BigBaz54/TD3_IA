@@ -1,5 +1,4 @@
 import random
-from time import sleep
 import numpy as np
 
 NBR_ARRONDISSEMENTS = 12
