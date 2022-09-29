@@ -106,6 +106,7 @@ class Labyrinthe:
             ax.plot(i_list, j_list, 'darkorange')
         plt.show()
 
-a = Labyrinthe(20,15)
-a.generate()
-a.plot([['S', 'E', 'E', 'N', 'E'], ['S', 'E', 'S', 'W', 'S'], ['E', 'E', 'E', 'S', 'E'], ['S', 'E', 'S', 'W', 'S'], ['E', 'E', 'E', 'S', 'E'], ['S', 'E', 'S', 'W', 'S'], ['E', 'E', 'E', 'S', 'E'], ['S', 'E', 'S', 'W', 'S'], ['E', 'E', 'E', 'S', 'E']])
+if __name__ == '__main__':
+    a = Labyrinthe(20,15)
+    a.generate()
+    a.plot([['S', 'E', 'E', 'N', 'E'], ['S', 'E', 'S', 'W', 'S'], ['E', 'E', 'E', 'S', 'E'], ['S', 'E', 'S', 'W', 'S'], ['E', 'E', 'E', 'S', 'E'], ['S', 'E', 'S', 'W', 'S'], ['E', 'E', 'E', 'S', 'E'], ['S', 'E', 'S', 'W', 'S'], ['E', 'E', 'E', 'S', 'E']])
