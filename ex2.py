@@ -22,12 +22,15 @@ def first_gen(laby, taille_pop):
 def fitness(laby, individu):
     x,y = get_pos(individu)
     cell = laby.cells[y][x]
+    x_end = laby.width-1
+    y_end = laby.height-1
+    dist_end = math.sqrt((x_end-x)**2+(y_end-y)**2)+1
+    if dist_end == 0:
+        return 1
     if [cell['N'], cell['S'], cell['E'], cell['W']].count(True)<2:
         return 0
     score = 0
-    x_end = laby.width-1
-    y_end = laby.height-1
-    score += -math.sqrt((x_end-x)**2+(y_end-y)**2)
+    score += 1/dist_end
     return score
 
 def selection(laby, pop):
@@ -86,12 +89,14 @@ PROBA_MUTATION = 0.1
 NBR_GEN = 1000
 
 # générations successives
-labyrinthe = Labyrinthe(8,8)
+labyrinthe = Labyrinthe(10,10)
 labyrinthe.generate()
 gen = first_gen(labyrinthe, TAILLE_POP)
 for i in range(NBR_GEN):
-    gen = selection(labyrinthe, gen)
     print(f"Géneration {i} : meilleure fitness {round(max([fitness(labyrinthe, e) for e in gen]), 2)}")
+    if fitness(labyrinthe, gen[-1]) == 1:
+        break
+    gen = selection(labyrinthe, gen)
     gen = next_gen(labyrinthe, gen)
     gen = mutation(PROBA_MUTATION, gen)
     gen.sort(key=(lambda x: fitness(labyrinthe, x)))
