@@ -1,2 +1,2 @@
 # TD3_IA
-# Rien à lire ici
+Une implémentation du TD3 du cours d'IA de 2A à TN.
